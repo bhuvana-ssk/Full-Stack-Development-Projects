@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+        <style>
+            @media all {
+            .r1{
+                margin-left: 300px;
+                margin-top: 50px;
+            }
+
+            th,td{
+                padding: 10px;
+                font-size: 20px;
+                text-align: left;
+                
+            }
+            .fo{
+                background-color: skyblue;
+                border-color: black;
+                border-radius: 50px;
+                border-style: solid;
+                width:70%;
+                height:900px;
+                margin-left: 250px;
+            }
+            .but1{
+                margin-left:80px;
+            }
+            .but2{
+                margin-left:100px;
+            }
+        }
+        </style>
+        <script>
+            function registered()
+            {
+                alert("Registration Successful !!\nThanks for Registering🙏🏻");
+            }
+        </script>
+    </head>
+    <body bgcolor="lightblue"> 
+                <div class="fo">
+                    <h1 style="text-align:center;">EVENT REGISTRATION FORM📝</h1>
+                    <form class="r1" onsubmit="registered()">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>First Name </th>
+                                    <td><input type="text" placeholder="Bhuvana" required></td>
+                                </tr>
+                                <tr>
+                                    <th>Last Name </th>
+                                    <td><input type="text" placeholder="SenthilKumar" required></td>
+                                </tr>
+                                <tr>
+                                    <th>Department </th>
+                                    <td><select>
+                                        <option selected>B.Tech AIDS</option>
+                                        <option>B.Tech IT</option>
+                                        <option>B.Tech BT</option>
+                                        <option>B.E CSE</option>
+                                        <option>B.E MECH</option>
+                                        <option>B.E CIVIL</option>
+                                        <option>B.E EEE</option>
+                                        <option>B.E ECE</option>
+                                        <option>B.E BME</option>
+                                        <option>MBA</option>
+                                        <option>MCA</option>
+                                    </select></td>
+                                </tr>
+                                
+                                <tr>
+                                    <th>Year </th>
+                                    <td><input name="year" type="radio"><label>I</label>
+                                        <input name="year" type="radio"><label>II</label>
+                                        <input name="year" type="radio"><label>III</label>
+                                        <input name="year" type="radio"><label>IV</label>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <th>College Name</th>
+                                    <td><input type="text" required></td>
+                                </tr>
+                                <tr>
+                                    <th>Gender </th>
+                                    <td><input name="gender" type="radio"><label>Male</label>
+                                        <input name="gender" type="radio"><label>Female</label>
+                                        <input name="gender" type="radio"><label>Others</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>E-Mail ID </th>
+                                    <td><input type="email" placeholder="abc@domain.com" required></td>
+                                </tr>
+                                <tr>
+                                    <th>Phone Number</th>
+                                    <td><input type="tel" pattern="[0-9]{10}" placeholder="9876543210" required></td>
+                                </tr>
+                                <tr>
+                                    <th>Communication Address</th>
+                                    <td><textarea rows="5" cols="20" placeholder="Type your Address here..." required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <th>Date Of the Event</th>
+                                    <td><input type="datetime-local" required></td>
+                                </tr>
+                                <tr>
+                                    <th>No. Of Events Interested</th>
+                                    <td>1<input type="range" minlength="1" maxlength="5">5</td>
+                                </tr>
+                                <tr>
+                                    <th>Event List</th>
+                                    <td><input type="checkbox"><label>Paper Presentation</label><br>
+                                        <input type="checkbox"><label>Project Expo</label><br>
+                                        <input type="checkbox"><label>Orange-O-Mania</label><br>
+                                        <input type="checkbox"><label>Debugging</label><br>
+                                        <input type="checkbox"><label>Datathon</label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <label class="but1"><input type="reset"></label>
+                        <label class="but2"><input type="submit"></label>
+                    </form>
+                </div>
+    </body>
+</html>

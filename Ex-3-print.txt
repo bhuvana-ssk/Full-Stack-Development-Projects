@@ -1,0 +1,290 @@
+EXERCISE-3:
+------------
+
+1) Table of Colors
+<html>
+    <body bgcolor="skyblue">
+        <center><h1>Mouse Events</h1> </center>
+        <marquee>Move your mouse pointer over any value...</marquee>
+        <table id="table" border="1">
+    <tr>
+      <td class="hex">#FFFFFF</td>
+      <td class="hex">#000000</td>
+      <td class="hex">#0000FF</td>
+      <td class="hex">#9370DB</td>
+    </tr>
+    <tr>
+      <td class="hex">#00FF00</td>
+      <td class="hex">#FF0000</td>
+      <td class="hex">#FFFF00</td>
+      <td class="hex">#FFA500</td>
+    </tr>
+    <tr>
+        <td class="hex">#FFC0CB</td>
+        <td class="hex">#008080</td>
+        <td class="hex">#800080</td>
+        <td class="hex">#00CED1</td>
+      </tr>
+  </table>
+ 
+  </body>
+  <head>
+    <title>MOUSE EVENTS</title>
+  <style>
+    .hex {
+      padding: 10px;
+    }
+    table{
+        margin-left:550px;
+        margin-top: 100px;
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        border:2px solid black;
+    }
+    marquee{
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+    }
+  </style>
+  
+  <script>
+  var table = document.getElementById("table");
+  console.log(table);
+  var hexCodes = table.getElementsByClassName("hex");
+  
+  for (var i = 0; i < hexCodes.length; i++) {
+    hexCodes[i].addEventListener("mouseover", function() {
+      this.style.color = this.innerHTML;
+    });
+    hexCodes[i].addEventListener("mouseout", function() {
+      this.style.color = "";
+    });
+  }
+  </script>
+  </head>
+  </html>
+-----------------------------------------------------------
+2) DropDown Menu
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DropDown Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("mepco-college.webp");
+  background-size: 1550px 800px;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color:#5C5CFF;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #0000FF;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color:#006DFF;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#awards">Awards</a>
+  <a href="#academics">Academics</a>
+  <a href="#rnd">R & D</a>
+  <div class="dropdown">
+    <button class="dropbtn">Departments 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">AI & DS</a>
+      <a href="#">CSE</a>
+      <a href="#">IT</a>
+      <a href="#">MECH</a>
+      <a href="#">CIVIL</a>
+      <a href="#">ECE</a>
+      <a href="#">EEE</a>
+      <a href="#">BIO-TECH</a>
+      <a href="#">BME</a>
+      <a href="#">MCA</a>
+      <a href="#">MBA</a>
+      <a href="#">ARCHITECTURE</a>
+    </div>
+  </div> 
+  <a href="#fac">Faculty</a>
+  <a href="#lib">Library</a>
+  <a href="#cont">Contact</a>
+</div>
+</body>
+</html>
+----------------------------------------------------------
+3) PopUp Blocker
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pop-up Blocker</title>
+</head>
+<body>
+    <script>
+        const popUp = () =>{
+            let popup = window.open(null,'','width=100px','height=100px')
+            try {
+                popup.close()
+                return false;
+            } catch (error) {
+                return true
+            }
+        }
+        if (popUp()) {
+            document.writeln("<center><h1>Popup Blocker Available</h1></center>")
+        } else {
+            document.writeln("<center><h1>Popup Blocker Not Available</h1></center>")
+        }
+    </script>
+</body>
+</html>
+----------------------------------------------------------
+4) Game of 15
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sliding Game</title>
+        <style>
+            table,td,tr{
+                border:3px solid black;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            td{
+                background-color:lightblue;
+                padding: 40px;
+            }
+            table{
+              margin-top: 50px;
+            }
+            marquee{
+              font-size: 20px;
+              font-style: italic;
+              font-weight: bold;
+              font-family: 'Times New Roman', Times, serif;
+            }
+            body{
+              background-color: pink;
+            }
+        </style>
+    </head>
+    <body onload="generate(this)">
+        <center><h1>Sliding Game</h1>
+          <marquee>Slide the Numbers to play the game...</marquee>
+        <table id="table" cellspacing="0">
+        </table></center>
+    </body>
+    <script>
+        var pos;
+        function generate()
+        {
+            const t = document.getElementById("table");
+            var arr=[];
+            var table="";
+            var count=0;
+            for(var i=0;i<4;i++)
+            {
+                var tabrow='<tr>';
+                for(j=0;j<4;j++)
+                {
+                    var rand;
+                    while(1)
+                    {
+                        rand=Math.floor(Math.random() * 16);
+                        if(!arr.includes(rand))
+                        {
+                            arr.push(rand);
+                            break;
+                        }
+                    }
+                    if(rand==0)
+                    {
+                        rand="";
+                        pos=arr.length-1;
+                    }
+                    var tabcols = `<td id="${count++}" onclick="slide(this)">${rand}</td>`;
+                    tabrow += tabcols;
+                }
+                tabrow += '</tr>';
+                table += tabrow;
+            }
+            t.innerHTML = table;
+        }
+        function slide(elem)
+        {
+            let current = parseInt(elem.id);
+            if(current+4==pos||current-4==pos||current+1==pos||current-1==pos)
+            {
+                document.getElementById(pos.toString()).innerHTML = elem.innerHTML;
+                elem.innerHTML = "";
+                pos = current;
+            }
+        }
+    </script>
+</html>
+-----------------------------------------------------------

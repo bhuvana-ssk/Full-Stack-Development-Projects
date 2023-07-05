@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sliding Game</title>
+        <style>
+            table,td,tr{
+                border:3px solid black;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            td{
+                background-color:lightblue;
+                padding: 40px;
+            }
+            table{
+              margin-top: 50px;
+            }
+            marquee{
+              font-size: 20px;
+              font-style: italic;
+              font-weight: bold;
+              font-family: 'Times New Roman', Times, serif;
+            }
+            body{
+              background-color: pink;
+            }
+        </style>
+    </head>
+    <body onload="generate(this)">
+        <center><h1>Sliding Game</h1>
+          <marquee>Slide the Numbers to play the game...</marquee>
+        <table id="table" cellspacing="0">
+        </table></center>
+    </body>
+    <script>
+        var pos;
+        function generate()
+        {
+            const t = document.getElementById("table");
+            var arr=[];
+            var table="";
+            var count=0;
+            for(var i=0;i<4;i++)
+            {
+                var tabrow='<tr>';
+                for(j=0;j<4;j++)
+                {
+                    var rand;
+                    while(1)
+                    {
+                        rand=Math.floor(Math.random() * 16);
+                        if(!arr.includes(rand))
+                        {
+                            arr.push(rand);
+                            break;
+                        }
+                    }
+                    if(rand==0)
+                    {
+                        rand="";
+                        pos=arr.length-1;
+                    }
+                    var tabcols = `<td id="${count++}" onclick="slide(this)">${rand}</td>`;
+                    tabrow += tabcols;
+                }
+                tabrow += '</tr>';
+                table += tabrow;
+            }
+            t.innerHTML = table;
+        }
+        function slide(elem)
+        {
+            let current = parseInt(elem.id);
+            if(current+4==pos||current-4==pos||current+1==pos||current-1==pos)
+            {
+                document.getElementById(pos.toString()).innerHTML = elem.innerHTML;
+                elem.innerHTML = "";
+                pos = current;
+            }
+        }
+    </script>
+</html>

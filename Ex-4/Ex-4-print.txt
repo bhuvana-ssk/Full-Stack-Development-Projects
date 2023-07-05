@@ -1,0 +1,185 @@
+Exercise-4:
+------------
+
+1) Sending Mail using NodeJs
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Send Mail</title>
+        <style>
+
+            body{
+                background-color: skyblue;
+            }
+
+            .header{
+                text-align: center;
+            }
+
+            .content{
+                /* border-style: solid;
+                border-color: black; */
+                margin-left: 560px;
+                margin-top: 100px;
+                height: 400px;
+                width: 400px;
+            }
+
+            .form{
+                margin-left: 50px;
+                margin-top: 30px;
+                font-size: 17px;
+            }
+
+            table{
+                border-spacing: 20px;
+            }
+            .reset{
+                margin-left: -90px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Sending Mail using NodeJS</h1>
+        </div>
+        <div class="content">
+        <form method="post" action="sendmail" class="form">
+        <table>
+            <tr>
+                <td>From :</td>
+                <td><input type="text" name="from" value="hugsandkisses0926@gmail.com" readonly></td>
+            </tr>
+            <tr>
+                <td>To :</td>
+                <td><input type="text" name="to"></td>
+            </tr>
+            <tr>
+                <td>Subject :</td>
+                <td><input type="text" name="subject"></td>
+            </tr>
+            <tr>
+                <td>Message :</td>
+                <td><textarea rows="10" cols="20" name="message"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Send"></td>
+                <td><input type="reset" value="Reset" class="reset"></td>
+            </tr>
+        </table>
+        </form>
+        </div>
+    </body>
+</html>
+----------
+var express = require('express');
+const app = express();
+var bodyParser = require('body-parser');
+var helmet = require('helmet');
+var nodemailer = require('nodemailer');
+let alert = require('alert'); 
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(helmet());
+
+app.listen(4000,()=> {
+    console.log("Application Started And Listening On Port 4000....");
+});
+
+app.get("/",(req,res)=>{
+    res.sendFile(__dirname+'/mail.html')
+});
+
+app.post('/sendmail', async(req, res) => {
+    console.log(req.body);
+    var mail = nodemailer.createTransport({
+        service:'gmail',
+        auth:{
+            user:'hugsandkisses0926@gmail.com',
+            pass:'siypazzlucnyaozg'
+        }
+    });
+    var data = {
+        from:'hugsandkisses0926@gmail.com',
+        to:req.body.to,
+        subject:req.body.subject,
+        text:req.body.message
+    }
+    
+    mail.sendMail(data,function(error,info){
+        if(error){
+            console.log(error);
+        } else{
+            console.log('Email Sent: ' + info.response);
+        }
+    })
+    alert("Mail Sent Successfully !!");
+    return res.send('Mail Sent Successfully !! to  '+ req.body.to);
+  });
+------------------------------------------------
+2)
+var http = require("http");
+http.request({
+    host:"www.google.in",
+    method:"GET", 
+    path:"/"
+}, 
+function(response)
+{
+    response.setEncoding("utf8");
+    response.on("readable", function(){
+        console.log(response.read());
+    });
+}).end();
+-------------------------------------------------
+3)
+var url = require("url");
+console.log(url.parse("http://www.google.com"));
+console.log("\n\n");
+console.log(url.parse("http://www.mepcoeng.ac.in")); 
+-------------------------------------------------------
+4)
+var http=require('http')
+var url=require('url')
+var server=http.createServer(function(request,response){
+    var cookies = request.headers.cookie;
+    if(!cookies)
+    {
+        var cookieName = 'session';
+        var cookieValue = '123456';
+        var expiryDate = new Date();
+        expiryDate.setDate(expiryDate.getDate() + 1);
+        var cookieText = cookieName+'='+cookieValue+';expires='+expiryDate.toUTCString()+';';
+        response.setHeader('Set-Cookie',cookieText);
+        response.writeHead(302,{
+            'Location':'/'
+        })
+        return response.end();
+    }
+    cookies.split(';').forEach(function(cookie){
+        var m=cookie.match(/(.*?)=(.*)$/);
+        cookies[m[1].trim()]=(m[2] || '').trim();
+    })
+    response.end('Cookie set:'+cookies.toString())
+}).listen(8080)
+console.log('Server Running at localhost:8080....');
+------------------------------------------------------
+5)
+console.log("Bhuvana".replace(/A|a/g, 'b'));
+------------------------------------------------
+6)
+var user = {
+    first_name: "Bhuvana",
+    last_name: "Senthilkumar",
+    age: "21",
+    department: "Data Science"
+    }
+console.log(user);
+console.log("No. of Attributes: "+Object.keys(user).length);
+delete user.last_name;
+console.log("--------------------------")
+console.log("After Deletion");
+console.log(user);
+console.log("No. of Attributes: "+Object.keys(user).length);
+----------------------------------------------------------------

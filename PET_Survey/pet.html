@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pet Survey Form</title>
+        <style>
+
+            .io{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .bottom{
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+            .but1{
+                margin-left:400px;
+            }
+            .but2{
+                margin-left:-100px;
+            }
+            .fo{
+                background-color: orchid;
+                display: grid;
+                grid-template-columns: 1fr;
+                border-color: black;
+                border-style: groove;
+                width: 70%;
+                height:1250px;
+                margin-left: 250px;
+                margin-top: -570px;
+            }
+
+            .r1{
+                margin-left: 100px;
+                margin-top: 20px;
+            }
+
+            th,td{
+                padding: 10px;
+                font-size: 20px;
+                text-align: left;
+            }
+            body{
+                background-color: skyblue;
+            }
+        </style>
+        <script>
+            function success(){
+                window.alert("Thanks for taking the Survey🫱🏼‍🫲🏼😀")
+            }
+        </script>
+    </head>
+    <body name = "body">
+        <div>
+            <div class="bottom">
+                <div class="tit">
+                    <h1 style="text-align:center;">PET SURVEY FORM</h1>
+                </div>
+                <div class="fo">
+                    <form class="r1" method = "post" action="/reg">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Name : </th>
+                                    <td><input type="text" name = "name" id="name" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th>Age : </th>
+                                    <td><input type="number" name = "age" id="age" step="1" min="10" max="50" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th>Do You Own a Pet? : </th>
+                                    <td><input type="radio" name = "own" id="own" value="Yes"><label>Yes</label><br>
+                                        <input type="radio" name = "own" id="own" value="No"><label>No</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>How Many Pets Do You Have? : </th>
+                                    <td>1<input type="range" name="noPets" min="1" max="10" step="1" value="">10</td>
+                                </tr>
+                                <tr>
+                                    <th>What Type Of Pet Do You Currently Have? : </th>
+                                    <td><input type="checkbox" name = "Pet" id="Pet" value="Dog"><label>Dog</label><br>
+                                        <input type="checkbox" name = "Pet" id="Pet" value="Cat"><label>Cat</label><br>
+                                        <input type="checkbox" name = "Pet" id="Pet" value="Birds"><label>Birds</label><br>
+                                        <input type="checkbox" name = "Pet" id="Pet" value="Fish"><label>Fish</label><br>
+                                        <input type="checkbox" name = "Pet" id="Pet" value="Rabbit"><label>Rabbit</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>For How Many Years Have You Been a Pet Owner? : </th>
+                                    <td><input type="radio" name = "owner" id="owner" value="0-5 Years"><label>0-5 Years</label><br>
+                                        <input type="radio" name = "owner" id="owner" value="6-10 Years"><label>6-10 Years</label><br>
+                                        <input type="radio" name = "owner" id="owner" value="11-15 Years"><label>11-15 Years</label><br>
+                                        <input type="radio" name = "owner" id="owner" value="More Than 16 Years"><label>More Than 16 Years</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Where Does Your Pet Sleep? : </th>
+                                    <td><input type="checkbox" name = "sleep" id="sleep" value="Outside"><label>Outside</label><br>
+                                        <input type="checkbox" name = "sleep" id="sleep" value="In a Cage"><label>In a Cage</label><br>
+                                        <input type="checkbox" name = "sleep" id="sleep" value="In a Tank"><label>In a Tank</label><br>
+                                        <input type="checkbox" name = "sleep" id="sleep" value="In a Crate"><label>In a Crate</label><br>
+                                        <input type="checkbox" name = "sleep" id="sleep" value="In Your Bed"><label>In Your Bed</label><br>
+                                        <input type="checkbox" name = "sleep" id="sleep" value="In a Family Members Bed"><label>In a Family Members Bed</label><br>
+                                        <input type="checkbox" name = "sleep" id="sleep" value="On The Floor"><label>On The Floor</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>At What Age Did You First Become a Pet Owner? : </th>
+                                    <td><input type="radio" name = "ownerage" id="ownerage" value="As a Young Child"><label>As a Young Child</label><br>
+                                        <input type="radio" name = "ownerage" id="ownerage" value="As a School Age Child"><label>As a School Age Child</label><br>
+                                        <input type="radio" name = "ownerage" id="ownerage" value="As a Teenage"><label>As a Teenager</label><br>
+                                        <input type="radio" name = "ownerage" id="ownerage" value="While In College"><label>While In College</label><br>
+                                        <input type="radio" name = "ownerage" id="ownerage" value="Once I Had Children"><label>Once I Had Children</label><br>
+                                        <input type="radio" name = "ownerage" id="ownerage" value="At a Time When I Was Living Alone"><label>At a Time When I Was Living Alone</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Do You Travel With Your Pet? : </th>
+                                    <td><input type="radio" name = "travel" id="travel" value="Yes"><label>Yes</label><br>
+                                        <input type="radio" name = "travel" id="travel" value="No"><label>No</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>How Much Do You Spend On The Grooming Of Your Pet Per Year? : </th>
+                                    <td><input type="radio" name = "Groom" id="Groom" value="Rs.0 To Rs.1000"><label>Rs.0 To Rs.1000</label><br>
+                                        <input type="radio" name = "Groom" id="Groom" value="Rs.1000 To Rs.2500"><label>Rs.1000 To Rs.2500</label><br>
+                                        <input type="radio" name = "Groom" id="Groom" value="Rs.2500 To Rs.5000"><label>Rs.2500 To Rs.5000</label><br>
+                                        <input type="radio" name = "Groom" id="Groom" value="More Than Rs.5000"><label>More Than Rs.5000</label><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>How Often Do You Take Your Pet To Veterinarian? : </th>
+                                    <td><input type="radio" name = "Veterinarian" id="Veterinarian" value="3 Months"><label>4 Months</label><br>
+                                        <input type="radio" name = "Veterinarian" id="Veterinarian" value="6 Months"><label>6 Months</label><br>
+                                        <input type="radio" name = "Veterinarian" id="Veterinarian" value="9 Months"><label>8 Months</label><br>
+                                        <input type="radio" name = "Veterinarian" id="Veterinarian" value="12 Months"><label>10 Months</label><br>
+                                        <input type="radio" name = "Veterinarian" id="Veterinarian" value="Never"><label>Never</label><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>What Do You Prefer? : </th>
+                                    <td><select name = "Prefer" id="Prefer">
+                                        <option selected value="Buying a Pet">Buying a Pet</option>
+                                        <option value="Adopting a Pet">Adopting a Pet</option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="reset" class ="but1" name = "Reset"></td>
+                                    <td><input type="submit" class ="but2" name = "Submit" onclick="success()"></td>
+                                </tr>
+                            </tbody> 
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

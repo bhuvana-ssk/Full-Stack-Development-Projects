@@ -1,0 +1,70 @@
+import React, { useState } from "react";
+
+function Todo() {
+  const [inputValue, setInputValue] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = () => {
+    if (inputValue.trim() !== "") {
+      setTodos([...todos, { text: inputValue, isCompleted: false }]);
+      setInputValue("");
+    }
+  };
+
+  const deleteTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
+  const completeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos);
+  };
+
+  const filterCompleted = () => {
+    return todos.filter((todo) => todo.isCompleted);
+  };
+
+  const filterActive = () => {
+    return todos.filter((todo) => !todo.isCompleted);
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <button onClick={addTodo}>Add Todo</button>
+
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            <span
+              style={{
+                textDecoration: todo.isCompleted ? "line-through" : "none",
+              }}
+            >
+              {todo.text}
+            </span>
+            <button onClick={() => completeTodo(index)}>
+              {todo.isCompleted ? "Incomplete" : "Complete"}
+            </button>
+            <button onClick={() => deleteTodo(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+
+      <div>
+        <button onClick={() => setTodos(todos)}>All</button>
+        <button onClick={() => setTodos(filterActive())}>Active</button>
+        <button onClick={() => setTodos(filterCompleted())}>Completed</button>
+      </div>
+    </div>
+  );
+}
+
+export default Todo;

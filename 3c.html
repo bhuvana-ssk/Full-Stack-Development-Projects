@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pop-up Blocker</title>
+    <style>
+        h1{
+            margin-top: 200px;
+            margin-left:500px;
+            color: darkorchid;
+        }
+    </style>
+</head>
+<body bgcolor="skyblue">
+    <script>
+        const popUp = () =>{
+            let popup = window.open(null,'','width=100px','height=100px')
+            try {
+                popup.close()
+                return false;
+            } catch (error) {
+                return true;
+            }
+        }
+        if (popUp()) {
+            document.writeln("<h1>Popup Blocker Available</h1>")
+        } else {
+            document.writeln("<h1>Popup Blocker Not Available</h1>")
+        }
+    </script>
+</body>
+</html>

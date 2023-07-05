@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Student Mark Details</title>
+        <script crossorigin src="https://unpkg.com/ react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script>
+        <script>
+            function start()
+            {
+                class Table extends React.Component{
+                    render(){
+                        return(
+                            React.createElement("tr", {},
+                            React.createElement("td", {}, this.props.roll),
+                            React.createElement("td", {}, this.props.name),
+                            React.createElement("td", {}, this.props.s1),
+                            React.createElement("td", {}, this.props.s2),
+                            React.createElement("td", {}, this.props.s3),
+                            React.createElement("td", {}, this.props.s4),
+                            React.createElement("td", {}, this.props.s5),
+                            React.createElement("td", {}, this.props.s6),
+                            React.createElement("td", {}, this.props.total)
+                            )
+                        );
+                    }
+                }
+                const rootElem = React.createElement("div",{},
+                React.createElement("h1",{},"Student Mark Details"),
+                React.createElement("table",{},
+                React.createElement("tr",{},
+                React.createElement("th", {}, "Roll Number"),
+                React.createElement("th", {}, "Name"),
+                React.createElement("th", {}, "DL"),
+                React.createElement("th", {}, "FSD"),
+                React.createElement("th", {}, "SE"),
+                React.createElement("th", {}, "CE"),
+                React.createElement("th", {}, "AE"),
+                React.createElement("th", {}, "OE"),
+                React.createElement("th", {}, "Total")),
+
+                React.createElement(Table, {
+                    roll:"20200901", name:'Tom', s1:80, s2:72, s3:82, s4:76, s5:78, s6:81, total:469
+                }),
+                React.createElement(Table, {
+                    roll:"20200902", name:'Jerry', s1:85, s2:89, s3:80, s4:85, s5:82, s6:89, total:510
+                }),
+                React.createElement(Table, {
+                    roll:"20200903", name:'Sinzo', s1:82, s2:79, s3:84, s4:91, s5:82, s6:79, total:497
+                }),
+                React.createElement(Table, {
+                    roll:"20200904", name:'Doremon', s1:92, s2:97, s3:96, s4:94, s5:98, s6:98, total:575
+                })
+                ));
+                ReactDOM.render(rootElem, document.getElementById('main'));
+            }
+        </script>
+    </head>
+    <body onLoad="start();">
+        <div id="main"></div>
+    </body>
+</html>

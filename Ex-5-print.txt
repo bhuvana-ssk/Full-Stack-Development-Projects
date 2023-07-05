@@ -1,0 +1,74 @@
+EXERCISE-5:
+------------
+1)
+Home.html
+----------
+<html lang="en">
+<head><meta charset="utf-8">
+<title>Count the Words</title>
+</head>
+<body>
+<form method="post" action="reg">
+<label>Enter a Sentence: </label><input type="text" name="box">
+<input type="submit">
+</form>
+</body>
+</html>
+
+Server.js
+----------
+var express = require('express');
+const app = express();
+var bodyParser = require('body-parser');
+var helmet = require('helmet');
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(helmet());
+
+app.listen(4000,()=> {
+    console.log("Application Started And Listening On Port 4000.....");
+});
+
+app.get("/",(req,res)=>{
+    res.sendFile(__dirname+'/home.html')
+});
+
+app.post('/reg', async(req, res) => {
+    var count = req.body.box.split('').length;
+    var words = req.body.box.split(' ').length;
+    console.log(count);
+    console.log(words);
+    return res.send('Length of the Sentence : ' + count + '\n\n' + 'No. of Words in Sentence : ' +words);
+  })
+------------------------------------------------------------------------------------
+2)
+net-server.js
+---------------
+var net = require("net");
+var server = net.createServer(function(connection) {
+    console.log('Client connected.');
+    connection.on('end', function() {
+        console.log('Client disconnected.');
+    });
+    connection.write('Hello World!\n');
+    connection.pipe(connection);
+});
+server.listen(5000, function() {
+    console.log('Server is listening.');
+});
+
+net-client.js
+---------------
+var net = require('net');
+var client = net.connect({port: 5000}, 'localhost', function() {
+    console.log('Connected to Server.');
+});
+    client.on('data', function (data) {
+        console.log(data.toString());
+        
+        client.end();
+    });
+    client.on('end', function () {
+        console.log('Disconnected from server.');
+    });
+----------------------------------------------------------------------------

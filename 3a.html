@@ -1,0 +1,63 @@
+<html>
+    <body bgcolor="skyblue">
+        <center><h1>Mouse Events</h1> </center>
+        <marquee>Move your mouse pointer over any value...</marquee>
+        <table id="table" border="1">
+    <tr>
+      <td class="hex">#FFFFFF</td>
+      <td class="hex">#000000</td>
+      <td class="hex">#0000FF</td>
+      <td class="hex">#9370DB</td>
+    </tr>
+    <tr>
+      <td class="hex">#00FF00</td>
+      <td class="hex">#FF0000</td>
+      <td class="hex">#FFFF00</td>
+      <td class="hex">#FFA500</td>
+    </tr>
+    <tr>
+        <td class="hex">#FFC0CB</td>
+        <td class="hex">#008080</td>
+        <td class="hex">#800080</td>
+        <td class="hex">#00CED1</td>
+      </tr>
+  </table>
+ 
+  </body>
+  <head>
+    <title>MOUSE EVENTS</title>
+  <style>
+    .hex {
+      padding: 10px;
+    }
+    table{
+        margin-left:550px;
+        margin-top: 100px;
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        border:2px solid black;
+    }
+    marquee{
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+    }
+  </style>
+  
+  <script>
+  var table = document.getElementById("table");
+  var hexCodes = table.getElementsByClassName("hex");
+  for (var i = 0; i < hexCodes.length; i++) {
+    hexCodes[i].addEventListener("mouseover", function() {
+      this.style.color = this.innerHTML;
+    });
+    hexCodes[i].addEventListener("mouseout", function() {
+      this.style.color = "";
+    });
+  }
+  </script>
+  </head>
+  </html>

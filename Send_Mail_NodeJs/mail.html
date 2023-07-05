@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Send Mail</title>
+        <style>
+
+            body{
+                background-color: skyblue;
+            }
+
+            .header{
+                text-align: center;
+            }
+
+            .content{
+                /* border-style: solid;
+                border-color: black; */
+                margin-left: 560px;
+                margin-top: 100px;
+                height: 400px;
+                width: 400px;
+            }
+
+            .form{
+                margin-left: 50px;
+                margin-top: 30px;
+                font-size: 17px;
+            }
+
+            table{
+                border-spacing: 20px;
+            }
+            .reset{
+                margin-left: -90px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Sending Mail using NodeJS</h1>
+        </div>
+        <div class="content">
+        <form method="post" action="sendmail" class="form">
+        <table>
+            <tr>
+                <td>From :</td>
+                <td><input type="text" name="from" value="bhuvana@gmail.com" readonly></td>
+            </tr>
+            <tr>
+                <td>To :</td>
+                <td><input type="text" name="to"></td>
+            </tr>
+            <tr>
+                <td>Subject :</td>
+                <td><input type="text" name="subject"></td>
+            </tr>
+            <tr>
+                <td>Message :</td>
+                <td><textarea rows="10" cols="20" name="message"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Send"></td>
+                <td><input type="reset" value="Reset" class="reset"></td>
+            </tr>
+        </table>
+        </form>
+        </div>
+    </body>
+</html>

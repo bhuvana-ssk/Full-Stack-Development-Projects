@@ -1,0 +1,1 @@
+console.log("Bhuvana".replace(/A|a/g, 'b'));
